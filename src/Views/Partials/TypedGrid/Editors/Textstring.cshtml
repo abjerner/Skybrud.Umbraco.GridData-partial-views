@@ -1,0 +1,17 @@
+﻿@using Skybrud.Umbraco.GridData.Rendering
+@using Skybrud.Umbraco.GridData.Values
+
+@inherits UmbracoViewPage<GridControlWrapper<GridControlTextValue>>
+
+@if (Model.Control.Editor.Config.Markup != null) {
+    
+    string markup = Model.Control.Editor.Config.Markup;
+
+    markup = markup.Replace("#value#", Model.Value.Value);
+    markup = markup.Replace("#style#", Model.Control.Editor.Config.Style);
+
+    @Html.Raw(markup)
+
+} else {
+    <div style="@Model.Control.Editor.Config.Style">@Model.Value.Value</div>
+}

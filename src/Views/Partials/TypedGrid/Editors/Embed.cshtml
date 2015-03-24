@@ -1,0 +1,13 @@
+﻿@using System.Globalization
+@using Skybrud.Umbraco.GridData.Values
+@inherits UmbracoViewPage<Skybrud.Umbraco.GridData.GridControl>
+
+@{
+
+    GridControlHtmlValue value = Model.GetValue<GridControlHtmlValue>();
+    
+}
+
+<div class="video-wrapper">
+	@value.HtmlValue
+</div>

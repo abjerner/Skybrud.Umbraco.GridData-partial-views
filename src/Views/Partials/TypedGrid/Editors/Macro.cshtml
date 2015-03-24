@@ -1,0 +1,18 @@
+﻿@using Skybrud.Umbraco.GridData.Rendering
+@using Skybrud.Umbraco.GridData.Values
+@inherits UmbracoViewPage<GridControlWrapper<GridControlMacroValue>>
+
+@if (Model.Value == null) { return; }
+
+@{
+    
+    string macroAlias = Model.Value.MacroAlias;
+    
+    ViewDataDictionary parameters = new ViewDataDictionary();
+    foreach (KeyValuePair<string, object> mpd in Model.Value.Parameters) {
+        parameters.Add(mpd.Key, mpd.Value);
+    }
+
+    @Umbraco.RenderMacro(macroAlias, parameters)
+
+}

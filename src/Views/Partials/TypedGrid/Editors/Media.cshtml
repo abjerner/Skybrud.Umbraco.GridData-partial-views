@@ -1,0 +1,25 @@
+﻿@using Skybrud.Umbraco.GridData.Rendering
+@using Skybrud.Umbraco.GridData.Values
+@inherits UmbracoViewPage<GridControlWrapper<GridControlMediaValue>>
+
+@if (Model.Value != null) {   
+    
+    string url = Model.Value.Image;
+    
+    //if (Model.Control.Editor.Config != null && Model.Control.Editor.Config.Size != null) {
+    //    url += "?width=" + Model.editor.config.size.width;
+    //    url += "&height=" + Model.editor.config.size.height;
+
+    //    if(Model.value.focalPoint != null){
+    //        url += "&center=" + Model.value.focalPoint.top +"," + Model.value.focalPoint.left;
+    //        url += "&mode=crop";
+    //    }
+    //}
+    
+    <img src="@url" alt="@Model.Value.Caption">
+    
+    if (Model.Value.Caption != null) {
+        <p class="caption">@Model.Value.Caption</p>
+    }
+
+}

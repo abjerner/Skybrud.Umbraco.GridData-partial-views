@@ -1,0 +1,21 @@
+﻿@using Skybrud.Umbraco.GridData
+@inherits UmbracoViewPage<GridControl>
+
+@functions {
+    public static string EditorView(GridControl contentItem) {
+        string view = contentItem.Editor.Render ?? contentItem.Editor.View;
+        view = view.ToLower().Replace(".html", ".cshtml").Replace("/App_Plugins/Grid/", "/App_Plugins/TypedGrid/", StringComparison.InvariantCultureIgnoreCase);
+        
+        if (!view.Contains("/")) {
+            view = "TypedGrid/Editors/" + view;
+        }
+
+        return view;
+    }
+}
+@try {
+    string editor = EditorView(Model);
+    @Html.Partial(editor, (object) GridContext.GetControlWrapper(Model, (dynamic) Model.Value))
+} catch (Exception ex) {
+    <pre style="white-space: pre-wrap; color: white; border: 2px solid white; padding: 5px; margin-top: 10px; font-size: 11px;">@ex.ToString()</pre>
+}
