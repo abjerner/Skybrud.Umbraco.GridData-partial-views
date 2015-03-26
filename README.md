@@ -6,7 +6,7 @@ The partial views are currently using a version of Skybrud.Umbraco.GridData that
 
 The examples are based on the Fanoe starter kit.
 
-**So how to I use the partial views?**  
+**So how do I use the partial views?**  
 When installing a new Umbraco installation with the Fanoe starter kit, the starting point for rendering the looks like:
 
 ```C#
